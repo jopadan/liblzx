@@ -183,12 +183,12 @@ uint32_t time_to_date(time_t t)
 	localtime_r(&t, &tm);
 	tm.tm_year += 1900;
 
-	return ((tm.tm_sec   << DATE_SHIFT_SECOND) & DATE_MASK_SECOND +
-	        (tm.tm_min   << DATE_SHIFT_SECOND) & DATE_MASK_MINUTE +
-	        (tm.tm_hour  << DATE_SHIFT_HOUR)   & DATE_MASK_HOUR   +
-	        (tm.tm_mday  << DATE_SHIFT_DAY)    & DATE_MASK_DAY    +
-	        (tm.tm_mon   << DATE_SHIFT_MONTH)  & DATE_MASK_MONTH  +
-	        (tm.tm_year  << DATE_SHIFT_YEAR)   & DATE_MASK_YEAR);
+	return (((tm.tm_sec   << DATE_SHIFT_SECOND) & DATE_MASK_SECOND) +
+	        ((tm.tm_min   << DATE_SHIFT_SECOND) & DATE_MASK_MINUTE) +
+	        ((tm.tm_hour  << DATE_SHIFT_HOUR)   & DATE_MASK_HOUR)   +
+	        ((tm.tm_mday  << DATE_SHIFT_DAY)    & DATE_MASK_DAY)    +
+	        ((tm.tm_mon   << DATE_SHIFT_MONTH)  & DATE_MASK_MONTH)  +
+	        ((tm.tm_year  << DATE_SHIFT_YEAR)   & DATE_MASK_YEAR));
 }
 
 void print_time(time_t t)

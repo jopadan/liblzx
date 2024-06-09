@@ -1,3 +1,7 @@
 unlzx
 unlzx.exe
 unlzx.o
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+install_manifest.txt
