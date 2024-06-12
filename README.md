@@ -5,9 +5,10 @@ LZX compression algorithm format C/C++ library
 ### Status
 
 - [x] improved Y2K date fixes based on [UnLZX 2.2 source][3]
-- [x] introduce -p [TITOV|CALUSINSKI] getopt optarg
+- [x] updated crc32 code
+- [x] introduce -p [titov|calusinksi] getopt optarg
 - [x] use C time.h for date/time
-- [x] Makefile support
+- [x] use CMake
 
 ### Build
 
@@ -18,7 +19,7 @@ make install
 ### Run
 
 ```sh
-unlzx -p TITOV -v samples/Test_LZX.lzx
+unlzx -p titov -v samples/test_lzx.lzx
 ```
 
 ### References

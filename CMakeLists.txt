@@ -31,7 +31,7 @@ target_include_directories( ${PROJECT_NAME} INTERFACE
 
 add_executable( unlzx examples/unlzx.cpp )
 target_link_libraries( unlzx ${PROJECT_NAME} )
-
+install(TARGETS unlzx DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT binary)
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/lzx DESTINATION
 	${CMAKE_INSTALL_INCLUDEDIR} COMPONENT headers
 )
