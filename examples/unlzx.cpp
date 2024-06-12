@@ -30,6 +30,7 @@
 #include <utility>
 #include <fcntl.h>
 #include <sys/stat.h>
+#include <utime.h>
 #include <getopt.h>
 #include <lzx/lzx.h>
 
@@ -694,6 +695,7 @@ int extract_normal(FILE *in_file)
 			unpack_size -= count;
 			pos += count;
 		}
+		lzx::time::to_file(node->filename, lzx::time::to_stdc(&archive_header[18]));
 
 		if(out_file)
 		{
@@ -757,6 +759,7 @@ int extract_store(FILE *in_file)
 			}
 			unpack_size -= count;
 		}
+		lzx::time::to_file(node->filename, lzx::time::to_stdc(&archive_header[18]));
 
 		if(out_file)
 		{
@@ -852,8 +855,6 @@ int extract_archive(FILE *in_file)
 											node->crc = crc;
 											for(temp = 0; node->filename[temp] = header_filename[temp]; temp++);
 
-											if(pack_size)
-											{
 												switch(pack_mode)
 												{
 													case 0: /* store */
@@ -888,9 +889,6 @@ int extract_archive(FILE *in_file)
 													perror("FSeek(Data)");
 													break;
 												}
-											}
-											else
-												abort = 0; /* continue */
 										}
 										else
 											fprintf(stderr, "MAlloc(Filename_node)\n");

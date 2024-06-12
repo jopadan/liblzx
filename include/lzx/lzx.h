@@ -15,6 +15,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <getopt.h>
+#include <utime.h>
 
 /* STRUCTURE Info_Header
 {
@@ -159,6 +160,12 @@ namespace lzx
 			        ((tm.tm_mday  << shift::day)    & mask::day)    +
 			        ((tm.tm_mon   << shift::month)  & mask::month)  +
 			        ((tm.tm_year  << shift::year)   & mask::year));
+		}
+
+		void to_file(const char* filename, time_t timestamp)
+		{
+			struct utimbuf date = { timestamp, timestamp };
+			utime(filename, &date);
 		}
 
 		void print(time_t t)
