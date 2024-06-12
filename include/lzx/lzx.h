@@ -169,7 +169,7 @@ namespace lzx
 			localtime_r(&t, &tm);
 			strftime(time_str, 32, "%H:%M:%S", &tm);
 			strftime(date_str, 32, "%d-%b-%Y", &tm);
-			printf("%s %s \n", time_str, date_str);
+			printf("%s %s ", time_str, date_str);
 		}
 	};
 
