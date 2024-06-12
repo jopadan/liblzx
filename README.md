@@ -7,8 +7,8 @@ LZX compression algorithm format C/C++ library
 - [x] improved Y2K date fixes based on [UnLZX 2.2 source][3]
 - [x] updated crc32 code
 - [x] introduce -p [titov|calusinksi] getopt optarg
-- [x] use C time.h for date/time
-- [x] use CMake
+- [x] time.h/utime.h for file access timestamps
+- [x] CMake build
 
 ### Build
 
